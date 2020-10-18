@@ -6,6 +6,7 @@
  {
      public class Mutation
      {
+        [UseApplicationDbContext]
          public async Task<AddGenrePayload> AddGenreAsync(
              AddGenreInput input,
              [Service] ApplicationDbContext context)
