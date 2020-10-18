@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GigPlanner.GraphQL;
 using GigPlanner.GraphQL.Data;
 using GigPlanner.GraphQL.DataLoader;
+using GigPlanner.GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,7 +28,9 @@ namespace GraphQL
                 .AddGraphQLServer()
                 .AddQueryType<Query>()
                 .AddMutationType<Mutation>()
-                .AddDataLoader<GenreByIdDataLoader>();
+                .AddType<GenreType>()
+                .AddDataLoader<GenreByIdDataLoader>()
+                .AddDataLoader<BandByIdDataLoader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
